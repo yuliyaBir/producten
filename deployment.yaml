@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: producten-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: producten
+      release: stable
+  template:
+    metadata:
+      labels:
+        app: producten
+        release: stable
+    spec:
+      containers:
+        - name: production-container
+          image: yuliyabir/producten:1.0.0
